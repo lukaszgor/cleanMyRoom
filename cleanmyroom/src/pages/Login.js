@@ -1,4 +1,5 @@
 
+import Auth from "../components/Auth";
 function Login() {
 
 
@@ -6,6 +7,7 @@ function Login() {
     return (
       <div>
           Login
+          <Auth></Auth>
       </div>
      
       
