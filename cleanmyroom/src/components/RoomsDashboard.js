@@ -3,11 +3,12 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Button } from "@mui/material";
 import ButtonGroup from '@mui/material/ButtonGroup';
 import supabase from "../supabaseClient" 
+import { useNavigate } from "react-router-dom"
 function RoomsDashboard() {
 
     const [fetchError,setFetchError] =useState(null)
     const [rooms,setRooms] =useState(null)
-
+    const navigate = useNavigate()//add to nav
 
     useEffect(()=>{
         const fetchrooms = async()=>{
@@ -39,6 +40,9 @@ const historyButton=()=>{
 }
 const cleanButton=()=>{
 
+}
+const addNewRoom=()=>{
+    navigate('/Add')
 }
 
 
@@ -88,6 +92,7 @@ const cleanButton=()=>{
         {rooms &&(
         <div>
       <p>Wszystkie pokoje</p>
+      <Button color="primary" onClick={addNewRoom}>Nowy</Button>
       <div style={{ height: 400, width: '100%' }}>
             <DataGrid
               rows={rooms}
