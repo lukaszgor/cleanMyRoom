@@ -14,7 +14,7 @@ import Alert from '@mui/material/Alert';
 function AddRoom() {
     const [number, setNumber] = useState('');
     const [name, setName] = useState('');
-    const [status, setStatus] = useState('brudne');
+    const [status, setStatus] = useState('oczekuje');
     const [description, setDescription] = useState('');
     const [date,setDate]=useState('09.02.2023');
     const [geolocation, setGeolocation] = useState('');

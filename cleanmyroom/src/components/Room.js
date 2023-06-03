@@ -89,9 +89,10 @@ useEffect(()=>{
 
 
     return (
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           
     <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
+    
       <TextField
         type="number"
         label="ID"
