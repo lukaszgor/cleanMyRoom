@@ -1,7 +1,6 @@
 import { useState,useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Button } from "@mui/material";
-import ButtonGroup from '@mui/material/ButtonGroup';
 import supabase from "../supabaseClient" 
 import { useNavigate } from "react-router-dom"
 function RoomsDashboard() {
@@ -29,22 +28,13 @@ function RoomsDashboard() {
         
       },[])
 
-
-
-
-const seetingsButton=()=>{
-
-}
-const historyButton=()=>{
-
-}
-const cleanButton=()=>{
-
+const seetingsButton=(event, cellValues)=>{
+    console.log(cellValues.row);
+    navigate('/settings/'+cellValues.row.id)
 }
 const addNewRoom=()=>{
     navigate('/Add')
 }
-
 
     const columns = [
 
@@ -54,30 +44,15 @@ const addNewRoom=()=>{
         { field: 'status', headerName: 'Status', width: 80 },
         { field: 'actionDate', headerName: 'Ostatnia akcja', width: 220 },
         {
-            field: "Akcje",headerName: 'Akcje', width: 400 ,
+            field: "Akcje",headerName: 'Akcje', width: 200 ,
             renderCell: (cellValues) => {
-              return (
-                <ButtonGroup>
-                <Button
-                  color="secondary"
-                  onClick={(event) => {
-                    cleanButton(event, cellValues);
-                  }}
-                >Do realizacji</Button>
-                <Button
-                color="error"
-                onClick={(event) => {
-                  historyButton(event, cellValues);
-                }}
-                >Historia</Button>
+              return ( 
                 <Button
                 color="primary"
                 onClick={(event) => {
                     seetingsButton(event, cellValues);
                 }}
                 >Opcje</Button>
-              </ButtonGroup>
-           
               );
             }
           },
