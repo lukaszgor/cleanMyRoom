@@ -143,9 +143,9 @@ useEffect(()=>{
         fullWidth
         style={{ marginBottom: '10px' }}
       >
-        <MenuItem value="brudne">Brudne</MenuItem>
-        <MenuItem value="realizacja">Realizacja</MenuItem>
-        <MenuItem value="czysty">Czyste</MenuItem>
+         <MenuItem value="oczekuje">Oczekuje</MenuItem>
+            <MenuItem value="realizacja">W trakcie Realizacji</MenuItem>
+            <MenuItem value="zakonczone">Zakończone</MenuItem>
       </Select>
       <TextField
         multiline

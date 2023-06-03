@@ -94,9 +94,9 @@ const handleCloseAlert = (event, reason) => {
             value={status}
             onChange={handleStatusChange}
           >
-            <MenuItem value="brudne">Brudne</MenuItem>
-            <MenuItem value="realizacja">Realizacja</MenuItem>
-            <MenuItem value="czyste">Czyste</MenuItem>
+            <MenuItem value="oczekuje">Oczekuje</MenuItem>
+            <MenuItem value="realizacja">W trakcie Realizacji</MenuItem>
+            <MenuItem value="zakonczone">Zakończone</MenuItem>
           </Select>
         </FormControl>
         <TextField
