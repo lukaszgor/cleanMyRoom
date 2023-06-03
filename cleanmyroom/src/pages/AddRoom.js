@@ -31,10 +31,11 @@ const insertRoom = async()=>{
     const{data,error} =  await supabase
     .from('rooms')
     .insert([{number:number,name:name,status:status,name:name,description:description,actionDate:date,geoLocation:geolocation}])
+    handleClickAlert()
     if(error){
         console.log(error)
     }if(data){
-       console.log(data)
+     
     }
   }
   
@@ -45,16 +46,8 @@ const insertRoom = async()=>{
   }
   
     const handleSubmit = (event) => {
-      event.preventDefault();
-      console.log('Number:', number);
-      console.log('Name:', name);
-      console.log('Status:', status);
-      console.log('Description:', description);
-      console.log('Geolocation:', geolocation);
-      
-      
+      event.preventDefault();  
       insertRoom();
-      handleClickAlert()
     };
 
     //alert configuration
@@ -70,8 +63,6 @@ const handleCloseAlert = (event, reason) => {
   }
   setOpen(false);
 };
-
-
 
     return (
       <div>
@@ -137,7 +128,7 @@ const handleCloseAlert = (event, reason) => {
     <Snackbar open={open}
         autoHideDuration={2000}
         onClose={handleCloseAlert}>
-      <Alert severity="success">Correct!</Alert>
+      <Alert severity="success">Dodano!</Alert>
       </Snackbar>
 
       </div>
