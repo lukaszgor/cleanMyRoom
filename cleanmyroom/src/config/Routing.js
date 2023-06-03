@@ -10,6 +10,7 @@ import Settings from "../pages/Settings"
 
 function Routing() {
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
