@@ -16,7 +16,8 @@ function AddRoom() {
     const [name, setName] = useState('');
     const [status, setStatus] = useState('brudne');
     const [description, setDescription] = useState('');
-    const [date,setDate]=useState('09.02.2023')
+    const [date,setDate]=useState('09.02.2023');
+    const [geolocation, setGeolocation] = useState('');
   
    
     const handleStatusChange = (event) => {
@@ -29,7 +30,7 @@ function AddRoom() {
 const insertRoom = async()=>{
     const{data,error} =  await supabase
     .from('rooms')
-    .insert([{number:number,name:name,status:status,name:name,description:description,actionDate:date}])
+    .insert([{number:number,name:name,status:status,name:name,description:description,actionDate:date,geoLocation:geolocation}])
     if(error){
         console.log(error)
     }if(data){
@@ -49,6 +50,7 @@ const insertRoom = async()=>{
       console.log('Name:', name);
       console.log('Status:', status);
       console.log('Description:', description);
+      console.log('Geolocation:', geolocation);
       
       
       insertRoom();
@@ -102,9 +104,19 @@ const handleCloseAlert = (event, reason) => {
             onChange={handleStatusChange}
           >
             <MenuItem value="brudne">Brudne</MenuItem>
+            <MenuItem value="realizacja">Realizacja</MenuItem>
             <MenuItem value="czyste">Czyste</MenuItem>
           </Select>
         </FormControl>
+        <TextField
+          type="geolocation"
+          label="Lokalizacja"
+          value={geolocation}
+          onChange={(e) => 
+            setGeolocation(e.target.value)}
+          required
+          style={{ marginBottom: '10px', maxWidth: '300px' }}
+        />
         <TextField
          multiline
          label="Description"

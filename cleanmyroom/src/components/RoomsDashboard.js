@@ -52,7 +52,7 @@ const addNewRoom=()=>{
         { field: 'number', headerName: 'Numer', type: 'number',width: 80 },
         { field: 'name', headerName: 'Nazwa', width: 130 },
         { field: 'status', headerName: 'Status', width: 80 },
-        { field: 'actionDate', headerName: 'Ostatnia akcja', width: 120 },
+        { field: 'actionDate', headerName: 'Ostatnia akcja', width: 220 },
         {
             field: "Akcje",headerName: 'Akcje', width: 400 ,
             renderCell: (cellValues) => {
