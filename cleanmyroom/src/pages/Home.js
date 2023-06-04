@@ -5,6 +5,8 @@ import Button from '@mui/material/Button';
 import { Box } from "@mui/system";
 import RoomsDashboard from "../components/RoomsDashboard"
 
+import ResponsiveAppBar from "../components/ResponsiveAppBar";
+
 function Home() {
 
   //Signout method
@@ -49,7 +51,7 @@ const fetchTypeUser = async()=>{
 
   return (
     <div>
-        Home
+        <ResponsiveAppBar></ResponsiveAppBar>
         <Box display="flex" justifyContent="flex-end">
           <Button variant="outlined" color="error" onClick={SignOut}>Wyloguj</Button>
           </Box> 
