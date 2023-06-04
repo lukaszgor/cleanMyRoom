@@ -6,6 +6,7 @@ import Login from "../pages/Login"
 import Home from "../pages/Home"
 import AddRoom from "../pages/AddRoom"
 import Settings from "../pages/Settings"
+import TaskManagerView from "../pages/TaskManagerView"
 
 
 function Routing() {
@@ -17,6 +18,7 @@ function Routing() {
         <Route path="/Home" element={<Home />} />
         <Route path="/Add" element={<AddRoom />} />
         <Route path="/settings/:id" element={<Settings />} />
+        <Route path="/taskView/:id" element={<TaskManagerView />} />
       </Routes>
     </BrowserRouter>
   );
