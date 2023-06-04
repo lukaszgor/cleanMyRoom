@@ -52,7 +52,7 @@ const addNewRoom=()=>{
                 onClick={(event) => {
                     seetingsButton(event, cellValues);
                 }}
-                >Opcje</Button>
+                >Szczegóły</Button>
               );
             }
           },
