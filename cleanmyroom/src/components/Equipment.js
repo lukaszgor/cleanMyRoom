@@ -30,7 +30,8 @@ function Equipment() {
         const{data,error} =  await supabase
     .from('roomsequipment')
     .delete().eq('id', cellValues.row.id);
-    handleClickAlert()
+    handleClickAlert();
+    fetchEquipment();
     if(error){
         console.log(error)
     }if(data){
