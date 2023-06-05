@@ -1,4 +1,5 @@
 import WorkerAppTopBar from "../components/workerComponents/WorkerAppTopBar"
+import WorkerRoomsView from "../components/workerComponents/WorkerRoomsView"
 
 function WorkerHome() {
 
@@ -8,6 +9,7 @@ function WorkerHome() {
       <div>
         <WorkerAppTopBar></WorkerAppTopBar>
        worker
+       <WorkerRoomsView></WorkerRoomsView>
       </div>
      
       
