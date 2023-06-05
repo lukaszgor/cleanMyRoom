@@ -12,7 +12,6 @@ function WorkerRoomsView() {
     }, []);
 
 
-
           // Pobranie danych z Supabase
           const fetchData = async () => {
             const { data, error } = await supabase.from('rooms').select('*').in('status', ['oczekuje', 'realizacja']); ;
@@ -22,6 +21,15 @@ function WorkerRoomsView() {
               setRooms(data);
             }
           };
+
+          const handleButtonClickLocation = (room) => {
+            const locationString = room.geoLocation; 
+            const [latitude, longitude] = locationString.split(',').map((coordinate) => coordinate.trim());
+            const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+            window.open(googleMapsUrl);
+            console.log('Pole location:', room.geoLocation);
+          };
+        
   
           
     return (
@@ -47,10 +55,10 @@ function WorkerRoomsView() {
               </Typography>
               <Typography variant="body2" color="textSecondary">
                 Lokalizacja: {room.geoLocation}
-                <Button variant="contained" color="secondary" style={{ marginLeft: '10px' }} onClick={console.log('xd')}> Mapa</Button>
+                <Button variant="contained" color="secondary" style={{ marginLeft: '10px' }} onClick={() => handleButtonClickLocation(room)}> Mapa</Button>
               </Typography>
               <p></p>
-              <Button variant="contained" color="primary" style={{ marginLeft: '10px' }} onClick={console.log('xd')}> Realizacja</Button>
+              <Button variant="contained" color="primary" style={{ marginLeft: '10px' }} > Realizacja</Button>
             </CardContent>
           </Card>
         </Grid>
