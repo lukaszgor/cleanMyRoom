@@ -10,23 +10,70 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { useNavigate } from "react-router-dom"
+import { useState,useEffect } from 'react';
+import supabase from "../supabaseClient" 
 
 const pages = ['Administracja', 'Słowniki'];
 
 
 function ResponsiveAppBar() {
+    const [user,setUser] =useState(null)
+    let userIdFromLocalStorage;
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
 
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
+
+
+  useEffect(()=>{
+    FetchUserName();
+  },[])
+
+
+
+  //download username
+  const FetchUserName = async () => {
+    userIdFromLocalStorage = localStorage.getItem('userIdFromLocalStorage');
+    const{data,error} =  await supabase
+    .from('profiles')
+    .select('full_name')
+    .eq('id',userIdFromLocalStorage)
+    .single()
+    if(error){
+     
+    }if(data){
+      setUser(data.full_name)
+     
+    }
+    }
+
+    //Signout method
+    const navigate = useNavigate()//add to nav
+    const SignOut = async () => {
+      localStorage.clear();
+        const {user,error}= await supabase.auth.signOut()
+        if(error){
+          console("Error with sigout")
+        }else{
+          navigate('/')
+        }
+      }
+
+       //go to Administration method
+    const Administration =  () => {
+          navigate('/Administration')
+      }
+         //go to Dictionaries method
+    const Dictionaries =  () => {
+          navigate('/Dictionaries')
+      }
 
 
   return (
@@ -38,7 +85,7 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="/home"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -81,8 +128,8 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-<Button sx={{ my: 2, color: 'blue', display: 'block' }}>Administracja</Button>
-<Button sx={{ my: 2, color: 'blue', display: 'block' }}>Słowniki</Button>
+<Button onClick={Administration}  sx={{ my: 2, color: 'blue', display: 'block' }}>Administracja</Button>
+<Button onClick={Dictionaries}  sx={{ my: 2, color: 'blue', display: 'block' }}>Słowniki</Button>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -90,7 +137,7 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/home"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -105,15 +152,13 @@ function ResponsiveAppBar() {
             CleanMyRoom
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-<Button sx={{ my: 2, color: 'white', display: 'block' }}>Administracja</Button>
-<Button sx={{ my: 2, color: 'white', display: 'block' }}>Słowniki</Button>
+<Button onClick={Administration} sx={{ my: 2, color: 'white', display: 'block' }}>Administracja</Button>
+<Button onClick={Dictionaries}  sx={{ my: 2, color: 'white', display: 'block' }}>Słowniki</Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-           
-              
-          <Button variant="contained" color="error" >Wyloguj</Button>
-          
+         {user}&nbsp;
+          <Button variant="contained" color="error" onClick={SignOut} >Wyloguj</Button>
           </Box>
         </Toolbar>
       </Container>

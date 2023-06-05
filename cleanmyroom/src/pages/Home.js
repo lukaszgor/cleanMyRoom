@@ -8,19 +8,7 @@ import RoomsDashboard from "../components/RoomsDashboard"
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 
 function Home() {
-
-  //Signout method
   const navigate = useNavigate()//add to nav
-  const SignOut = async () => {
-    localStorage.clear();
-      const {user,error}= await supabase.auth.signOut()
-      if(error){
-        console("Error with sigout")
-      }else{
-        navigate('/')
-      }
-    }
-
 //Verify loginuser
     let userIdFromLocalStorage;
     useEffect(()=>{
@@ -52,10 +40,6 @@ const fetchTypeUser = async()=>{
   return (
     <div>
         <ResponsiveAppBar></ResponsiveAppBar>
-        <Box display="flex" justifyContent="flex-end">
-          <Button variant="outlined" color="error" onClick={SignOut}>Wyloguj</Button>
-          </Box> 
-     <p></p>
       {isVerified !== null && <div><RoomsDashboard></RoomsDashboard></div>}
       {isVerified === null && <div><p> Zaczekaj na zatwierdzenie administratora!</p></div>}
     </div>

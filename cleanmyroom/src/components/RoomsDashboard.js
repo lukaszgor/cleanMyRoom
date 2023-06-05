@@ -66,7 +66,7 @@ const addNewRoom=()=>{
         {fetchError &&(<p>{fetchError}</p>)}
         {rooms &&(
         <div>
-      <p>Wszystkie pokoje</p>
+      <p>Wszystkie lokalizacje</p>
       <Button color="primary" onClick={addNewRoom}>Nowy</Button>
       <div style={{ height: 400, width: '100%' }}>
             <DataGrid
