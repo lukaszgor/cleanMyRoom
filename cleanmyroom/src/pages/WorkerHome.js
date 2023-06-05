@@ -1,4 +1,4 @@
-
+import WorkerAppTopBar from "../components/workerComponents/WorkerAppTopBar"
 
 function WorkerHome() {
 
@@ -6,6 +6,7 @@ function WorkerHome() {
 
     return (
       <div>
+        <WorkerAppTopBar></WorkerAppTopBar>
        worker
       </div>
      
