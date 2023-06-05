@@ -4,10 +4,8 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { useState,useEffect } from 'react';
-import WorkerAppTopBar from "../components/workerComponents/WorkerAppTopBar"
-import WorkerEquipment from "../components/workerComponents/WorkerEquipment"
-import WorkerHistory from "../components/workerComponents/WorkerHistory"
-import WorkerRealizationView from "../components/workerComponents/WorkerRealizationView"
+
+import TaskServices from '../taskManagerdetailsComp/TaskServices';
 
 
 function TabPanel(props) {
@@ -44,42 +42,34 @@ function TabPanel(props) {
   }
 
 
-
-function WorkerRoomView() {
+function WorkerRealizationView() {
 
     const [value, setValue] = useState(0);
     const handleChange = (event, newValue) => {
       setValue(newValue);
     };
+ 
 
     return (
       <div>
-        <WorkerAppTopBar></WorkerAppTopBar>
-        <div>
-        <Box sx={{ width: '100%' }}>
+                <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Realizacja" {...a11yProps(0)} />
-          <Tab label="Wyposazenie" {...a11yProps(1)} />
-          <Tab label="Historia" {...a11yProps(2)} />
+          <Tab label="Nagłówek" {...a11yProps(0)} />
+          <Tab label="Usługi" {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-      <WorkerRealizationView></WorkerRealizationView>
+      <p>naglowek</p>
       </TabPanel>
       <TabPanel value={value} index={1}>
-      <WorkerEquipment></WorkerEquipment>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-      <WorkerHistory></WorkerHistory>
+      <TaskServices></TaskServices>
       </TabPanel>
     </Box>
-        </div>
       </div>
      
       
     );
   }
   
-  export default WorkerRoomView;
-  
+  export default WorkerRealizationView;

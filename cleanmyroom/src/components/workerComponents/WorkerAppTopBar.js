@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom"
 import { useState,useEffect } from 'react';
 import supabase from "../../supabaseClient" 
 
-const pages = ['Administracja', 'Słowniki'];
+const pages = ['Profil', 'Zrealizowane'];
 
 
 function WorkerAppTopBar() {
@@ -128,8 +128,8 @@ function WorkerAppTopBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-<Button onClick={Administration}  sx={{ my: 2, color: 'blue', display: 'block' }}>Administracja</Button>
-<Button onClick={Dictionaries}  sx={{ my: 2, color: 'blue', display: 'block' }}>Słowniki</Button>
+<Button onClick={Administration}  sx={{ my: 2, color: 'blue', display: 'block' }}>Profil</Button>
+<Button onClick={Dictionaries}  sx={{ my: 2, color: 'blue', display: 'block' }}>Zrealizowane</Button>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -152,8 +152,8 @@ function WorkerAppTopBar() {
             CleanMyRoom
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-<Button onClick={Administration} sx={{ my: 2, color: 'white', display: 'block' }}>Administracja</Button>
-<Button onClick={Dictionaries}  sx={{ my: 2, color: 'white', display: 'block' }}>Słowniki</Button>
+<Button onClick={Administration} sx={{ my: 2, color: 'white', display: 'block' }}>Profil</Button>
+<Button onClick={Dictionaries}  sx={{ my: 2, color: 'white', display: 'block' }}>Zrealizowane</Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
