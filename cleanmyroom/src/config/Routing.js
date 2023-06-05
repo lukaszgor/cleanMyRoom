@@ -10,7 +10,7 @@ import TaskManagerView from "../pages/TaskManagerView"
 import Administration from "../pages/Administration"
 import Dictionaries from "../pages/Dictionaries"
 import WorkerHome from "../pages/WorkerHome"
-
+import WorkerRoomView from "../pages/WorkerRoomView"
 function Routing() {
   return (
     
@@ -24,6 +24,7 @@ function Routing() {
         <Route path="/AdministWorkerHomeration" element={<WorkerHome />} />
         <Route path="/settings/:id" element={<Settings />} />
         <Route path="/taskView/:id" element={<TaskManagerView />} />
+        <Route path="/roomWorker/:id" element={<WorkerRoomView />} />
       </Routes>
     </BrowserRouter>
   );

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, Typography, Grid } from '@mui/material';
 import supabase from '../../supabaseClient';
 import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom"
 
 function WorkerRoomsView() {
 
     const [rooms, setRooms] = useState([]);
+    const navigate = useNavigate()
 
     useEffect(() => {
       fetchData();
@@ -21,7 +23,7 @@ function WorkerRoomsView() {
               setRooms(data);
             }
           };
-
+//redirection to googlemaps
           const handleButtonClickLocation = (room) => {
             const locationString = room.geoLocation; 
             const [latitude, longitude] = locationString.split(',').map((coordinate) => coordinate.trim());
@@ -30,12 +32,14 @@ function WorkerRoomsView() {
             console.log('Pole location:', room.geoLocation);
           };
         
-  
+          //redirection to details room
+          const handleButtonClickRoomDetails=(room)=>{
+            
+            navigate('/roomWorker/'+room.id)
+        }
           
     return (
       <div>
-          WorkerRoomsView
-     
           <Grid container spacing={3}>
       {rooms.map((room) => (
         <Grid key={room.id} item xs={12} sm={6} md={4} lg={3}>
@@ -58,7 +62,7 @@ function WorkerRoomsView() {
                 <Button variant="contained" color="secondary" style={{ marginLeft: '10px' }} onClick={() => handleButtonClickLocation(room)}> Mapa</Button>
               </Typography>
               <p></p>
-              <Button variant="contained" color="primary" style={{ marginLeft: '10px' }} > Realizacja</Button>
+              <Button variant="contained" color="primary" style={{ marginLeft: '10px' }} onClick={() => handleButtonClickRoomDetails(room)} > Realizacja</Button>
             </CardContent>
           </Card>
         </Grid>

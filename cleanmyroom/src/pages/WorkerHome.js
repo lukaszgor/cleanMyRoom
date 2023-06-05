@@ -8,7 +8,7 @@ function WorkerHome() {
     return (
       <div>
         <WorkerAppTopBar></WorkerAppTopBar>
-       worker
+        <p></p>
        <WorkerRoomsView></WorkerRoomsView>
       </div>
      
