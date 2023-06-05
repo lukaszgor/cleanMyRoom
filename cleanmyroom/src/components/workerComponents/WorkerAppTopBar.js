@@ -149,7 +149,7 @@ function WorkerAppTopBar() {
               textDecoration: 'none',
             }}
           >
-            CleanMyRoom
+            
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 <Button onClick={Administration} sx={{ my: 2, color: 'white', display: 'block' }}>Profil</Button>
