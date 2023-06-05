@@ -4,8 +4,9 @@ import supabase from "../supabaseClient"
 import Button from '@mui/material/Button';
 import { Box } from "@mui/system";
 import RoomsDashboard from "../components/RoomsDashboard"
+import WorkerHome from "../pages/WorkerHome"
 
-import ResponsiveAppBar from "../components/ResponsiveAppBar";
+
 
 function Home() {
   const navigate = useNavigate()//add to nav
@@ -39,8 +40,10 @@ const fetchTypeUser = async()=>{
 
   return (
     <div>
-        <ResponsiveAppBar></ResponsiveAppBar>
-      {isVerified !== null && <div><RoomsDashboard></RoomsDashboard></div>}
+     
+      {/* {isVerified !== null && <div><RoomsDashboard></RoomsDashboard></div>} */}
+      {isVerified === 1 && <div><RoomsDashboard></RoomsDashboard></div>}
+      {isVerified === 2 && <div><WorkerHome></WorkerHome></div>}
       {isVerified === null && <div><p> Zaczekaj na zatwierdzenie administratora!</p></div>}
     </div>
    

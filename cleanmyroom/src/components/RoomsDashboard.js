@@ -3,6 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Button } from "@mui/material";
 import supabase from "../supabaseClient" 
 import { useNavigate } from "react-router-dom"
+import ResponsiveAppBar from "../components/ResponsiveAppBar";
 function RoomsDashboard() {
 
     const [fetchError,setFetchError] =useState(null)
@@ -63,6 +64,7 @@ const addNewRoom=()=>{
 
     return (
         <div>
+               <ResponsiveAppBar></ResponsiveAppBar>
         {fetchError &&(<p>{fetchError}</p>)}
         {rooms &&(
         <div>

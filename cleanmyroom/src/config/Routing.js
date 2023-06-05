@@ -9,7 +9,7 @@ import Settings from "../pages/Settings"
 import TaskManagerView from "../pages/TaskManagerView"
 import Administration from "../pages/Administration"
 import Dictionaries from "../pages/Dictionaries"
-
+import WorkerHome from "../pages/WorkerHome"
 
 function Routing() {
   return (
@@ -21,6 +21,7 @@ function Routing() {
         <Route path="/Add" element={<AddRoom />} />
         <Route path="/Dictionaries" element={<Dictionaries />} />
         <Route path="/Administration" element={<Administration />} />
+        <Route path="/AdministWorkerHomeration" element={<WorkerHome />} />
         <Route path="/settings/:id" element={<Settings />} />
         <Route path="/taskView/:id" element={<TaskManagerView />} />
       </Routes>
