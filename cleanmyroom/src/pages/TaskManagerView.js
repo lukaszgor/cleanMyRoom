@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import { useState,useEffect } from 'react';
 import TaskDetails from "../components/taskManagerdetailsComp/TaskDetails";
 import TaskServices from "../components/taskManagerdetailsComp/TaskServices";
+import ResponsiveAppBar from "../components/ResponsiveAppBar";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -49,6 +50,7 @@ function TaskManagerView() {
 
     return (
         <div>
+                <ResponsiveAppBar></ResponsiveAppBar>
           <Box sx={{ width: '100%' }}>
     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
       <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">

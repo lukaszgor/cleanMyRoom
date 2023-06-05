@@ -9,7 +9,7 @@ import moment from "moment";
 import supabase from "../supabaseClient" 
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-
+import ResponsiveAppBar from "../components/ResponsiveAppBar";
 
 function AddRoom() {
     const [number, setNumber] = useState('');
@@ -65,7 +65,9 @@ const handleCloseAlert = (event, reason) => {
 };
 
     return (
+        
       <div>
+            <ResponsiveAppBar></ResponsiveAppBar>
           AddRoom
           <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -133,8 +135,6 @@ const handleCloseAlert = (event, reason) => {
 
       </div>
      
-     
-      
     );
   }
   

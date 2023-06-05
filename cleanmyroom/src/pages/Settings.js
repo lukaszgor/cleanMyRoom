@@ -8,6 +8,7 @@ import { useState,useEffect } from 'react';
 import Room from '../components/Room';
 import Equipment from '../components/Equipment';
 import History from '../components/History';
+import ResponsiveAppBar from "../components/ResponsiveAppBar";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -54,6 +55,7 @@ function Settings() {
 
     return (
       <div>
+            <ResponsiveAppBar></ResponsiveAppBar>
           Settings
             <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
