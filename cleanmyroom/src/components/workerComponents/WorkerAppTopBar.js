@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom"
 import { useState,useEffect } from 'react';
 import supabase from "../../supabaseClient" 
 
-const pages = ['Profil', 'Zrealizowane'];
+const pages = ['Profil','Otwarte' ,'Zrealizowane'];
 
 
 function WorkerAppTopBar() {
@@ -74,7 +74,9 @@ function WorkerAppTopBar() {
     const Dictionaries =  () => {
           navigate('/Dictionaries')
       }
-
+      const inProgresstask =  () => {
+        navigate('/home')
+    }
 
   return (
     <AppBar position="static">
@@ -129,6 +131,7 @@ function WorkerAppTopBar() {
               }}
             >
 <Button onClick={Administration}  sx={{ my: 2, color: 'blue', display: 'block' }}>Profil</Button>
+<Button onClick={inProgresstask}  sx={{ my: 2, color: 'blue', display: 'block' }}>Otwarte</Button>
 <Button onClick={Dictionaries}  sx={{ my: 2, color: 'blue', display: 'block' }}>Zrealizowane</Button>
             </Menu>
           </Box>
@@ -153,6 +156,7 @@ function WorkerAppTopBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 <Button onClick={Administration} sx={{ my: 2, color: 'white', display: 'block' }}>Profil</Button>
+<Button onClick={inProgresstask} sx={{ my: 2, color: 'white', display: 'block' }}>Otwarte</Button>
 <Button onClick={Dictionaries}  sx={{ my: 2, color: 'white', display: 'block' }}>Zrealizowane</Button>
           </Box>
 

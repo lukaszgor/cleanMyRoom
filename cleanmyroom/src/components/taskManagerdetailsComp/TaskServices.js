@@ -155,13 +155,14 @@ function TaskServices() {
 
     return (
         <div>
- <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <FormControl style={{ marginRight: '10px', width: '200px' }}>
+ <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'  }}>
+        <FormControl style={{ marginRight: '10px', width: '270px' }}>
           <InputLabel id="nazwa-label">Nazwa</InputLabel>
           <Select
             labelId="nazwa-label"
             id="nazwa-select"
             value={name}
+            label="Nazwa"
             onChange={(e) => setName(e.target.value)}
           >
             {options.map((option) => (
@@ -171,14 +172,16 @@ function TaskServices() {
             ))}
           </Select>
         </FormControl>
+        <p></p>
         <TextField
           label="Komentarz"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           multiline
           rows={4}
-          style={{ marginRight: '10px', width: '300px' }}
+          style={{ marginRight: '10px', width: '270px' }}
         />
+        <p></p>
         <Button variant="contained" color="primary" onClick={handleAdd}>
           Dodaj
         </Button>
