@@ -118,6 +118,14 @@ const handleCloseAlert = (event, reason) => {
   setOpen(false);
 };
 
+//redirection to googlemaps
+const handleButtonClickLocation = (geolocation) => {
+    const locationString = geolocation; 
+    const [latitude, longitude] = locationString.split(',').map((coordinate) => coordinate.trim());
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+    window.open(googleMapsUrl);
+    console.log('Pole location:', geolocation);
+  };
 
 
     return (
@@ -151,13 +159,14 @@ const handleCloseAlert = (event, reason) => {
             <MenuItem value="zakonczone">Zakończone</MenuItem>
           </Select>
         </FormControl>
-        <TextField
+        {/* <TextField
           type="geolocation"
           label="Lokalizacja"
           value={geolocation}
           disabled
           style={{ marginBottom: '10px', maxWidth: '300px' }}
-        />
+        /> */}
+                     
         <TextField
          multiline
          label="Description"
@@ -189,6 +198,8 @@ const handleCloseAlert = (event, reason) => {
          required
          style={{ marginBottom: '10px', maxWidth: '300px' }}
         />
+        <Button variant="contained" color="secondary" style={{ marginLeft: '10px' }} onClick={() => handleButtonClickLocation(geolocation)}> Mapa</Button>
+        <p></p>
       </div>
       <Button type="submit" variant="contained" color="primary" >
         Zapisz

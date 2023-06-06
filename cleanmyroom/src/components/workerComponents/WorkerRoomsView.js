@@ -58,7 +58,7 @@ function WorkerRoomsView() {
                 Opis: {room.description}
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                Lokalizacja: {room.geoLocation}
+                Lokalizacja: 
                 <Button variant="contained" color="secondary" style={{ marginLeft: '10px' }} onClick={() => handleButtonClickLocation(room)}> Mapa</Button>
               </Typography>
               <p></p>
