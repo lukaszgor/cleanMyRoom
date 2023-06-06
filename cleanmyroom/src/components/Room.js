@@ -7,6 +7,7 @@ import supabase from "../supabaseClient";
 import { useParams } from "react-router-dom";
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import moment from "moment";
 
 function Room() {
     const {id} = useParams()
@@ -18,6 +19,7 @@ function Room() {
     const [description, setDescription] = useState('');
     const [actionDate, setActionDate] = useState('');
     const [geoLocation, setGeoLocation] = useState('');
+    const [date, setDate] = useState('');
     
       const handleSubmit = (event) => {
         event.preventDefault();
@@ -27,6 +29,14 @@ function Room() {
       const handleStatusChange = (event) => {
         setStatus(event.target.value);
       };
+
+
+
+       //set current date 
+       const currentDateFunction =()=>{
+        let currentDate=moment().format('L');
+        setDate(currentDate)
+      }     
 
 // google maps redirection
 const handleOpenGoogleMaps = () => {
@@ -77,7 +87,7 @@ const fetchrooms = async()=>{
 const updateRoom =async()=>{
     const{data,error}=await supabase
     .from('rooms')
-    .update({'number':number,'name':name,'status':status,'description':description,'geoLocation':geoLocation})
+    .update({'number':number,'name':name,'status':status,'description':description,'actionDate':date,'geoLocation':geoLocation})
     .eq('id',id)
     console.log("update room")
     handleClickAlert()
@@ -85,6 +95,7 @@ const updateRoom =async()=>{
 
 useEffect(()=>{
     fetchrooms();
+    currentDateFunction();
   },[])
 
 
@@ -92,7 +103,7 @@ useEffect(()=>{
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           
     <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
-    
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <TextField
         type="number"
         label="ID"
@@ -186,15 +197,18 @@ useEffect(()=>{
           Mapa
         </Button>
       </div>
+      </div>
       <Button type="submit" variant="contained" color="primary">
       Zapisz
       </Button>
-      <Snackbar open={open}
+  
+    </form>
+
+    <Snackbar open={open}
         autoHideDuration={2000}
         onClose={handleCloseAlert}>
       <Alert severity="success">Zaktualizowano!</Alert>
       </Snackbar>
-    </form>
 
       </div>
      
