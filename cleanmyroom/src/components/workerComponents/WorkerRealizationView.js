@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import { useState,useEffect } from 'react';
 
 import TaskServices from '../taskManagerdetailsComp/TaskServices';
+import WorkerTaskRealization from "../workerComponents/WorkerTaskRealization";
 
 
 function TabPanel(props) {
@@ -60,7 +61,7 @@ function WorkerRealizationView() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-      <p>naglowek</p>
+      <WorkerTaskRealization></WorkerTaskRealization>
       </TabPanel>
       <TabPanel value={value} index={1}>
       <TaskServices></TaskServices>
