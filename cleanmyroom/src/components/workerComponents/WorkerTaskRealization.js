@@ -31,6 +31,7 @@ function WorkerTaskRealization() {
     useEffect(()=>{
         currentDateFunction();
         fetchrooms();
+        FetchUserName();
         
       },[])
 

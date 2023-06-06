@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import { DataGrid } from '@mui/x-data-grid';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import moment from "moment";
 
 function TaskServices() {
     const [name, setName] = useState('');
@@ -18,10 +19,16 @@ function TaskServices() {
     const {id} = useParams();
     const [services,setServices] =useState(null);
     const [fetchError,setFetchError] =useState(null);
+    const [user,setUser] =useState('');
+    const [dateDone,setDate] =useState('');
+
   
+    
     useEffect(() => {
       fetchOptions();
       fetchServices();
+      FetchUserName();
+      currentDateFunction();
     }, []);
   
     const fetchOptions = async () => {
@@ -32,10 +39,33 @@ function TaskServices() {
         setOptions(data.map((record) => record.name));
       }
     };
+
+      //set current date 
+  const currentDateFunction =()=>{
+    let currentDate=moment().format('L');
+    setDate(currentDate)
+  }
+
+     //download username
+     let userIdFromLocalStorage;
+  const FetchUserName = async () => {
+    userIdFromLocalStorage = localStorage.getItem('userIdFromLocalStorage');
+    const{data,error} =  await supabase
+    .from('profiles')
+    .select('full_name')
+    .eq('id',userIdFromLocalStorage)
+    .single()
+    if(error){
+     
+    }if(data){
+      setUser(data.full_name)
+     
+    }
+    }
   
     //insert data
     const insertData =async ()=>{
-        const { data, error } = await supabase.from('services').insert([{name:name,comment:comment,idtask:id }]);
+        const { data, error } = await supabase.from('services').insert([{name:name,comment:comment,id_room:id,whoDone:user,dateDone:dateDone }]);
         if (error) {
           console.error(error);
         } else {
@@ -49,7 +79,8 @@ function TaskServices() {
         const{data,error} =  await supabase
         .from('services')
         .select()
-        .eq('idtask',id)
+        .eq('id_room',id)
+        .order('created_at', { ascending: false });
         if(error){
             console.log(error)
             setServices(null)
@@ -61,8 +92,10 @@ function TaskServices() {
     }
 
     const columns = [
-        { field: 'name', headerName: 'Nazwa', width: 130 },
-        { field: 'comment', headerName: 'Komentarz', width: 220 },
+        { field: 'name', headerName: 'Nazwa', width: 190 },
+        { field: 'comment', headerName: 'Komentarz', width: 150 },
+        { field: 'whoDone', headerName: 'Pracownik', width: 150 },
+        { field: 'dateDone', headerName: 'Data', width: 100 },
         {
             field: "Akcje",headerName: 'Akcje', width: 200 ,
             renderCell: (cellValues) => {

@@ -24,6 +24,7 @@ function WorkerHistory() {
     .from('tasks')
     .select()
     .eq('roomId',id)
+    .order('created_at', { ascending: false });
     if(error){
         console.log(error)
         setTasks(null)
@@ -47,19 +48,19 @@ const columns = [
     { field: 'whoDone', headerName: 'Realizator', width: 200 },
     { field: 'dateDone', headerName: 'Data i czas', width: 130 },
     { field: 'time', headerName: 'Czas wykonania', type: 'number', width: 120 },
-    {
-        field: "Akcje",headerName: 'Akcje', width: 200 ,
-        renderCell: (cellValues) => {
-          return ( 
-            <Button
-            color="primary"
-            onClick={(event) => {
-              detailsButton(event, cellValues);
-            }}
-            >Szczegóły</Button>
-          );
-        }
-      },
+    // {
+    //     field: "Akcje",headerName: 'Akcje', width: 200 ,
+    //     renderCell: (cellValues) => {
+    //       return ( 
+    //         <Button
+    //         color="primary"
+    //         onClick={(event) => {
+    //           detailsButton(event, cellValues);
+    //         }}
+    //         >Szczegóły</Button>
+    //       );
+    //     }
+    //   },
    
   ];
 

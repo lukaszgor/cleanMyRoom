@@ -17,6 +17,7 @@ function History() {
           .from('tasks')
           .select()
           .eq('roomId',id)
+          .order('created_at', { ascending: false });
           if(error){
               console.log(error)
               setTasks(null)

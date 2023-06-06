@@ -109,8 +109,7 @@ const insertEquipment = async()=>{
 
     return (
       <div>
-          Equipment
-
+       
           <form onSubmit={handleSubmit} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <TextField
         label="Nazwa"
