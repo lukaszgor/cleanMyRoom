@@ -4,7 +4,7 @@ import supabase from "../src/supabaseClient"
 import Routing from './config/Routing';
 function App() {
 
-console.log(supabase)
+
 
 
   return (
