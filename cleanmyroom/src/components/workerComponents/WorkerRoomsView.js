@@ -63,12 +63,12 @@ function WorkerRoomsView() {
         <div>
         <div style={{ marginLeft: '20px',marginBottom: '20px' }}>
           <TextField
-            label="Wyszukaj po nazwie"
+            label="Wyszukaj po nazwie "
             variant="outlined"
             value={searchName}
             onChange={(e) => setSearchName(e.target.value)}
           />
-          <FormControl variant="outlined" style={{ marginLeft: '20px', width: sortStatus ? '300px' : '200px' }}>
+          <FormControl variant="outlined" style={{  width: sortStatus ? '300px' : '200px' }}>
             <InputLabel id="status-select-label">Sortuj po statusie</InputLabel>
             <Select
               labelId="status-select-label"
