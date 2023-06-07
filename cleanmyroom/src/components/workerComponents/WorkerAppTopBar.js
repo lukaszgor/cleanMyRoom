@@ -70,9 +70,9 @@ function WorkerAppTopBar() {
     const Administration =  () => {
           navigate('/Administration')
       }
-         //go to Dictionaries method
-    const Dictionaries =  () => {
-          navigate('/Dictionaries')
+         //go to closed room
+    const ClosedRoomContainer =  () => {
+          navigate('/WorkerClosedRoomContainer')
       }
       const inProgresstask =  () => {
         navigate('/home')
@@ -132,7 +132,7 @@ function WorkerAppTopBar() {
             >
 <Button onClick={Administration}  sx={{ my: 2, color: 'blue', display: 'block' }}>Profil</Button>
 <Button onClick={inProgresstask}  sx={{ my: 2, color: 'blue', display: 'block' }}>Otwarte</Button>
-<Button onClick={Dictionaries}  sx={{ my: 2, color: 'blue', display: 'block' }}>Zrealizowane</Button>
+<Button onClick={ClosedRoomContainer}  sx={{ my: 2, color: 'blue', display: 'block' }}>Zrealizowane</Button>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -157,7 +157,7 @@ function WorkerAppTopBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 <Button onClick={Administration} sx={{ my: 2, color: 'white', display: 'block' }}>Profil</Button>
 <Button onClick={inProgresstask} sx={{ my: 2, color: 'white', display: 'block' }}>Otwarte</Button>
-<Button onClick={Dictionaries}  sx={{ my: 2, color: 'white', display: 'block' }}>Zrealizowane</Button>
+<Button onClick={ClosedRoomContainer}  sx={{ my: 2, color: 'white', display: 'block' }}>Zrealizowane</Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
