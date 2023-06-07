@@ -61,14 +61,15 @@ function WorkerRoomsView() {
     return (
 
         <div>
-        <div style={{ marginLeft: '20px',marginBottom: '20px' }}>
+        <div style={{ marginBottom: '20px' }}>
           <TextField
+          style={{ marginLeft: '20px',marginBottom: '20px' }}
             label="Wyszukaj po nazwie "
             variant="outlined"
             value={searchName}
             onChange={(e) => setSearchName(e.target.value)}
           />
-          <FormControl variant="outlined" style={{  width: sortStatus ? '300px' : '200px' }}>
+          <FormControl variant="outlined" style={{ marginLeft: '20px',  width: sortStatus ? '300px' : '200px' }}>
             <InputLabel id="status-select-label">Sortuj po statusie</InputLabel>
             <Select
               labelId="status-select-label"
@@ -104,7 +105,7 @@ function WorkerRoomsView() {
                   <Typography variant="body2" color="textSecondary">
                     <p></p>
                     <Button
-                      variant="contained"
+                      variant="outlined"
                       color="success"
                       onClick={() => handleButtonClickLocation(room)}
                     >

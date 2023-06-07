@@ -95,7 +95,7 @@ function WorkerClosedRoomContainer() {
                   <Typography variant="body2" color="textSecondary">
                     <p></p>
                     <Button
-                      variant="contained"
+                      variant="outlined"
                       color="success"
                       onClick={() => handleButtonClickLocation(room)}
                     >

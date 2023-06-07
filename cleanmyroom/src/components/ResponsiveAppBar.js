@@ -8,11 +8,10 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from "react-router-dom"
 import { useState,useEffect } from 'react';
 import supabase from "../supabaseClient" 
+import DryCleaningIcon from '@mui/icons-material/DryCleaning';
 
 const pages = ['Administracja', 'Słowniki'];
 
@@ -80,7 +79,7 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <DryCleaningIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -132,7 +131,7 @@ function ResponsiveAppBar() {
 <Button onClick={Services}  sx={{ my: 2, color: 'blue', display: 'block' }}>Usługi</Button>
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <DryCleaningIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap

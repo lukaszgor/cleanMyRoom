@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import moment from "moment";
+import { useNavigate } from "react-router-dom"
 
 function Room() {
     const {id} = useParams()
@@ -20,6 +21,7 @@ function Room() {
     const [actionDate, setActionDate] = useState('');
     const [geoLocation, setGeoLocation] = useState('');
     const [date, setDate] = useState('');
+    const navigate = useNavigate()
     
       const handleSubmit = (event) => {
         event.preventDefault();
@@ -91,6 +93,17 @@ const updateRoom =async()=>{
     .eq('id',id)
     console.log("update room")
     handleClickAlert()
+}
+
+//delete room 
+const deleteRoom =async()=>{
+    const{data,error}=await supabase
+    .from('rooms')
+    .delete()
+    .eq('id',id)
+    console.log("delete room")
+    navigate('/home')
+
 }
 
 useEffect(()=>{
@@ -193,12 +206,15 @@ useEffect(()=>{
           rowsMax={Infinity}
           fullWidth
         />
-        <Button variant="contained" color="secondary" style={{ marginLeft: '10px' }} onClick={handleOpenGoogleMaps}>
+        <Button variant="outlined" color="success" style={{ marginLeft: '10px' }} onClick={handleOpenGoogleMaps}>
           Mapa
+        </Button> 
+      </div>
+      </div>
+      <Button variant="contained" color="error" style={{ marginLeft: '10px' }} onClick={deleteRoom}>
+          Usuń
         </Button>
-      </div>
-      </div>
-      <Button type="submit" variant="contained" color="primary">
+      <Button type="submit" variant="contained" color="primary" style={{ marginLeft: '10px' }}>
       Zapisz
       </Button>
   

@@ -198,7 +198,7 @@ const handleButtonClickLocation = (geolocation) => {
          required
          style={{ marginBottom: '10px', maxWidth: '300px' }}
         />
-        <Button variant="contained" color="success"  onClick={() => handleButtonClickLocation(geolocation)}> Mapa</Button>
+        <Button variant="outlined" color="success"  onClick={() => handleButtonClickLocation(geolocation)}> Mapa</Button>
         <p></p>
       </div>
       <Button type="submit" variant="contained" color="primary" >
