@@ -1,13 +1,13 @@
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 
-function Dictionaries() {
+function Services() {
 
 
 
     return (
       <div>
             <ResponsiveAppBar></ResponsiveAppBar>
-          Dictionaries
+            Services
          
       </div>
      
@@ -15,5 +15,5 @@ function Dictionaries() {
     );
   }
   
-  export default Dictionaries;
+  export default Services;
   

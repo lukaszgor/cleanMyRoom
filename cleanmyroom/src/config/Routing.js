@@ -8,7 +8,7 @@ import AddRoom from "../pages/AddRoom"
 import Settings from "../pages/Settings"
 import TaskManagerView from "../pages/TaskManagerView"
 import Administration from "../pages/Administration"
-import Dictionaries from "../pages/Dictionaries"
+import Services from "../pages/Services"
 import WorkerHome from "../pages/WorkerHome"
 import WorkerRoomView from "../pages/WorkerRoomView"
 import WorkerClosedRoomContainer from "../pages/WorkerClosedRoomContainer"
@@ -22,7 +22,7 @@ function Routing() {
         <Route path="/" element={<Login />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Add" element={<AddRoom />} />
-        <Route path="/Dictionaries" element={<Dictionaries />} />
+        <Route path="/Services" element={<Services />} />
         <Route path="/Administration" element={<Administration />} />
         <Route path="/AdministWorkerHomeration" element={<WorkerHome />} />
         <Route path="/WorkerClosedRoomContainer" element={<WorkerClosedRoomContainer />} />

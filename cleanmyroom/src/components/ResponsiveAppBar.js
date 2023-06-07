@@ -71,8 +71,8 @@ function ResponsiveAppBar() {
           navigate('/Administration')
       }
          //go to Dictionaries method
-    const Dictionaries =  () => {
-          navigate('/Dictionaries')
+    const Services =  () => {
+          navigate('/Services')
       }
 
 
@@ -129,7 +129,7 @@ function ResponsiveAppBar() {
               }}
             >
 <Button onClick={Administration}  sx={{ my: 2, color: 'blue', display: 'block' }}>Administracja</Button>
-<Button onClick={Dictionaries}  sx={{ my: 2, color: 'blue', display: 'block' }}>Słowniki</Button>
+<Button onClick={Services}  sx={{ my: 2, color: 'blue', display: 'block' }}>Usługi</Button>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -149,11 +149,11 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            CleanMyRoom
+           
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 <Button onClick={Administration} sx={{ my: 2, color: 'white', display: 'block' }}>Administracja</Button>
-<Button onClick={Dictionaries}  sx={{ my: 2, color: 'white', display: 'block' }}>Słowniki</Button>
+<Button onClick={Services}  sx={{ my: 2, color: 'white', display: 'block' }}>Usługi</Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
