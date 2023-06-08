@@ -13,7 +13,7 @@ import { useState,useEffect } from 'react';
 import supabase from "../supabaseClient" 
 import DryCleaningIcon from '@mui/icons-material/DryCleaning';
 
-const pages = ['Administracja', 'Słowniki'];
+const pages = ['Profile','Administracja', 'Słowniki'];
 
 
 function ResponsiveAppBar() {
@@ -73,6 +73,10 @@ function ResponsiveAppBar() {
     const Services =  () => {
           navigate('/Services')
       }
+             //go to Profile method
+    const Profile =  () => {
+        navigate('/AdminUserProfile')
+    }
 
 
   return (
@@ -127,6 +131,7 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+<Button onClick={Profile}  sx={{ my: 2, color: 'blue', display: 'block' }}>Profil</Button>
 <Button onClick={Administration}  sx={{ my: 2, color: 'blue', display: 'block' }}>Administracja</Button>
 <Button onClick={Services}  sx={{ my: 2, color: 'blue', display: 'block' }}>Usługi</Button>
             </Menu>
@@ -151,6 +156,7 @@ function ResponsiveAppBar() {
            
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+<Button onClick={Profile}  sx={{ my: 2, color: 'white', display: 'block' }}>Profil</Button>
 <Button onClick={Administration} sx={{ my: 2, color: 'white', display: 'block' }}>Administracja</Button>
 <Button onClick={Services}  sx={{ my: 2, color: 'white', display: 'block' }}>Usługi</Button>
           </Box>

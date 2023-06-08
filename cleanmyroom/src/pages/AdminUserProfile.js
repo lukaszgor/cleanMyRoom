@@ -1,13 +1,13 @@
 import React, { useState,useEffect } from 'react';
-import WorkerAppTopBar from '../components/workerComponents/WorkerAppTopBar';
 import UserProfile from '../components/UserProfile';
+import ResponsiveAppBar from '../components/ResponsiveAppBar';
 
-function WorkerUserProfile() {
+function AdminUserProfile() {
 
 
   return (
     <div>
-        <WorkerAppTopBar></WorkerAppTopBar>
+        <ResponsiveAppBar></ResponsiveAppBar>
    
     <div >
         <UserProfile></UserProfile>
@@ -16,4 +16,4 @@ function WorkerUserProfile() {
   );
 }
 
-export default WorkerUserProfile;
+export default AdminUserProfile;
