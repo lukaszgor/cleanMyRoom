@@ -68,7 +68,7 @@ const addNewUser=()=>{
         {user &&(
         <div>
       <p> </p>
-      <Button color="primary" onClick={addNewUser}>Nowy</Button>
+      {/* <Button color="primary" onClick={addNewUser}>Nowy</Button> */}
       <div style={{ height: 400, width: '100%' }}>
             <DataGrid
               rows={user}

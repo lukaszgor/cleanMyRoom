@@ -32,19 +32,8 @@ function WorkerUserProfile() {
       },[])
 
   const handlePasswordChange = async () => {
-    try {
-        const user = supabase.auth.user();
-        if (user) {
-          const { error } = await supabase.auth.update({ password });
-          if (error) {
-            console.error(error);
-          } else {
-            console.log('Hasło zostało zmienione.');
-          }
-        }
-      } catch (error) {
-        console.error(error);
-      }
+    await supabase.auth.updateUser({ password: password })
+
   };
 
   const handleFullNameChange = async () => {
