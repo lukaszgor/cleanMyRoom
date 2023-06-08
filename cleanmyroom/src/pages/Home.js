@@ -2,11 +2,11 @@ import { useNavigate } from "react-router-dom"
 import { useState,useEffect } from 'react';
 import supabase from "../supabaseClient" 
 import Button from '@mui/material/Button';
-import { Box } from "@mui/system";
+//import { Box } from "@mui/system";
 import RoomsDashboard from "../components/RoomsDashboard"
 import WorkerHome from "../pages/WorkerHome"
-
-
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function Home() {
   const navigate = useNavigate()//add to nav
@@ -44,7 +44,11 @@ const fetchTypeUser = async()=>{
       {/* {isVerified !== null && <div><RoomsDashboard></RoomsDashboard></div>} */}
       {isVerified === 'admin' && <div><RoomsDashboard></RoomsDashboard></div>}
       {isVerified === 'worker' && <div><WorkerHome></WorkerHome></div>}
-      {isVerified === null && <div><p> Zaczekaj na zatwierdzenie administratora!</p></div>}
+      {isVerified === null && <div><p> Zaczekaj na zatwierdzenie administratora!</p>
+    <Box sx={{ display: 'flex' }}>
+      <CircularProgress />
+    </Box>
+      </div>}
     </div>
    
     
