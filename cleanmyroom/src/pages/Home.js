@@ -42,8 +42,8 @@ const fetchTypeUser = async()=>{
     <div>
      
       {/* {isVerified !== null && <div><RoomsDashboard></RoomsDashboard></div>} */}
-      {isVerified === 1 && <div><RoomsDashboard></RoomsDashboard></div>}
-      {isVerified === 2 && <div><WorkerHome></WorkerHome></div>}
+      {isVerified === 'admin' && <div><RoomsDashboard></RoomsDashboard></div>}
+      {isVerified === 'worker' && <div><WorkerHome></WorkerHome></div>}
       {isVerified === null && <div><p> Zaczekaj na zatwierdzenie administratora!</p></div>}
     </div>
    
