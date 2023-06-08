@@ -1,3 +1,4 @@
+
 import { useNavigate } from "react-router-dom"
 import { useState,useEffect } from 'react';
 import supabase from "../supabaseClient"  
@@ -9,7 +10,8 @@ import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 
-
+export let userEmail
+export let userId
 //navigate menu section
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -51,11 +53,13 @@ const handleChange = (event, newValue) => {
 };
     const navigate = useNavigate()//add to nav
 
-  const [email, setEmail] = useState(''); // email of the user
+   const [email, setEmail] = useState(''); // email of the user
   const [password, setPassword] = useState(''); // password of the user
   const [username, setUsername] = useState(''); // username of the user
   const [Rmsg, setRMsg] = useState(''); // Registration message
   const [Lmsg, setLMsg] = useState(''); // Login message
+  const [LmsgL, setLMsgL] = useState(''); // Login message via megic link
+  const [Resetmsg, setResetMsg] = useState('');
   const [user, setUser] = useState(''); // User object after registration / login
   const [session, setSession] = useState(''); // session object after registration / login
 
@@ -71,6 +75,9 @@ const handleChange = (event, newValue) => {
   supabase.auth.onAuthStateChange((event,session) => {
     if (event == "SIGNED_IN") {
       navigate('/home')
+      userEmail=session?.user.email;
+      userId=session?.user.id;
+      console.log(userId)
       // setter
 localStorage.setItem('userIdFromLocalStorage', session?.user.id);
     }
@@ -109,7 +116,16 @@ let errorMessageLogin='Enter valid credentials'
       navigate('/home')
     }
   }
-
+let ErrorMessageMagicLink="Enter valid email address"
+  const SendMagicLink = async () => {
+    const {user,error}=await supabase.auth.signInWithOtp({email})
+    if(error){
+        setLMsgL(ErrorMessageMagicLink)
+      }else{
+        setLMsgL('Login successful, check your mailbox')
+    
+      }
+  }
 
 return (
     <div className="App">
@@ -118,7 +134,7 @@ return (
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Logowanie" {...a11yProps(0)} />
           <Tab label="Rejestracja" {...a11yProps(1)} />
-         
+          <Tab label="Magiczny link" {...a11yProps(2)} />
         </Tabs>
       </Box>
 
@@ -132,6 +148,7 @@ return (
       <br/>
       <Button size="small" variant="contained" onClick={Login}>Zaloguj się</Button>
       <p>{Lmsg}</p>
+      <p>Jeśli chcesz zmienić hasło zaloguj się za posrednictwem magicznego linka</p>
       <br/>
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -149,7 +166,17 @@ return (
       <Button size="small" variant="contained" onClick={Register}>Zarejestruj się</Button>
       <p>{Rmsg}</p>
       </TabPanel>
-   
+      <TabPanel value={value} index={2}>
+      {/* <span STYLE="font-size:24.0pt;font-weight:bold">Zaloguj się za pomocą magicznego linka</span> <AutoFixNormalIcon /> */}
+      <h1>Zaloguj się za pomocą magicznego linka</h1>
+      <br/>
+      <br/>
+      <TextField id="standard-basic" label="E-mail" placeholder="Wpisz swój adres e-mail"  type="email" onChange={(e) => setEmail(e.target.value)} variant="standard" />
+      <br/> 
+      <br/> 
+      <Button size="small" variant="contained" onClick={SendMagicLink}>Wyślij magiczny link</Button>
+      <p>{LmsgL}</p>
+      </TabPanel>
     </Box>
     </div>
   );
