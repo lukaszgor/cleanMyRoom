@@ -6,16 +6,18 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import supabase from '../supabaseClient';
-import WorkerAppTopBar from '../components/workerComponents/WorkerAppTopBar';
+import ResponsiveAppBar from '../components/ResponsiveAppBar';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
+import Checkbox from '@mui/material/Checkbox';
 
 function AdminUserDetails() {
     const {id} = useParams()
     const [fullname, setFullName] = useState('');
     const [type, setType] = useState('');
-    const [pass, setPassword] = useState('');
     const navigate = useNavigate()
+    const [isChecked, setIsChecked] = useState(null);
+  
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -26,15 +28,10 @@ function AdminUserDetails() {
     const handleStatusChange = (event) => {
         setType(event.target.value);
       };
+      const handleCheckboxChange = (event) => {
+        setIsChecked((prevState) => (prevState === null ? 1 : null));
+      };
 
-      const deleteUser =async()=>{
-        const{data,error}=await supabase
-    .from('profiles')
-    .delete()
-    .eq('id',id)
-  navigate('/Administration')
-      
-    }
     
 //download data
 const fetchUser = async()=>{
@@ -49,6 +46,7 @@ const fetchUser = async()=>{
     }if(data){
       setFullName(data.full_name);
       setType(data.type);
+      setIsChecked(data.blocked)
      
     }
 }
@@ -56,16 +54,13 @@ const fetchUser = async()=>{
 const updateUser =async()=>{
     const{data,error}=await supabase
     .from('profiles')
-    .update({'full_name':fullname,'type':type})
+    .update({'full_name':fullname,'type':type,'blocked':isChecked})
     .eq('id',id)
     console.log("update room")
     handleClickAlert()
 }
 
-//update password 
-const updatePassword =async()=>{
 
-}
 
 useEffect(()=>{
     fetchUser();
@@ -89,7 +84,7 @@ const handleCloseAlert = (event, reason) => {
 
     return (
         <div>
-         <WorkerAppTopBar></WorkerAppTopBar>   
+         <ResponsiveAppBar></ResponsiveAppBar>   
          <p></p>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           
@@ -117,31 +112,19 @@ const handleCloseAlert = (event, reason) => {
                 <MenuItem value="worker">Worker</MenuItem>
           </Select>
           </div>
-          <Button variant="contained" color="error" style={{ marginLeft: '10px' }} onClick={deleteUser}>
-              Usuń
-            </Button>
+          <Checkbox
+        checked={isChecked !== null}
+        onChange={handleCheckboxChange}
+        color="primary"
+      />
+      <label htmlFor="my-checkbox">Zablokowany</label>
+
           <Button type="submit" variant="contained" color="primary" style={{ marginLeft: '10px' }}>
           Zapisz
           </Button>
       
         </form>
-        <div>
-            <p></p>
-        <TextField
-            type="password"
-            label="Zmiana hasła"
-            name="actionDate"
-            value={pass}
-            onChange={(e) => 
-                setPassword(e.target.value)}
-            fullWidth
-            style={{ marginBottom: '10px' }}
-          />
-        </div>
-        <Button type="submit" variant="contained" color="primary" style={{ marginLeft: '10px' }} onClick={updatePassword}>
-          Zmiana hasła
-          </Button>
-    
+      
         <Snackbar open={open}
             autoHideDuration={2000}
             onClose={handleCloseAlert}>

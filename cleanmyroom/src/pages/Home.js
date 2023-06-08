@@ -22,19 +22,33 @@ function Home() {
    }
    },[])
 
+   const SignOut = async () => {
+    localStorage.clear();
+      const {user,error}= await supabase.auth.signOut()
+      if(error){
+        console("Error with sigout")
+      }else{
+        navigate('/')
+      }
+    }
+
 //Verifity User
 const [isVerified,setisVerified] =useState(null)
+const [isBlocked,setIsBlocked] =useState(null)
 const fetchTypeUser = async()=>{
   const{data,error} =  await supabase
   .from('profiles')
-  .select('type')
+  .select()
   .eq('id',userIdFromLocalStorage)
   .single()
   if(error){
       console.log(error)
   }if(data){
     setisVerified(data.type)
-   
+    setIsBlocked(data.blocked)
+    if(data.blocked ===1){
+      SignOut()
+    }
   }
 }
 
@@ -42,13 +56,15 @@ const fetchTypeUser = async()=>{
     <div>
      
       {/* {isVerified !== null && <div><RoomsDashboard></RoomsDashboard></div>} */}
-      {isVerified === 'admin' && <div><RoomsDashboard></RoomsDashboard></div>}
-      {isVerified === 'worker' && <div><WorkerHome></WorkerHome></div>}
+      {isVerified === 'admin'  && <div><RoomsDashboard></RoomsDashboard></div>}
+      {isVerified === 'worker'  && <div><WorkerHome></WorkerHome></div>}
       {isVerified === null && <div><p> Zaczekaj na zatwierdzenie administratora!</p>
+      
     <Box sx={{ display: 'flex' }}>
       <CircularProgress />
     </Box>
       </div>}
+     
     </div>
    
     
