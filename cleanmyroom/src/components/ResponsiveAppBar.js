@@ -83,7 +83,7 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <DryCleaningIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <DryCleaningIcon  sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -162,7 +162,18 @@ function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-         {user}&nbsp;
+            <Typography
+            noWrap
+            component="a"
+            href="/AdminUserProfile"
+            sx={{
+              mr: 2,
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            {user}
+          </Typography>&nbsp;
           <Button variant="contained" color="error" onClick={SignOut} >Wyloguj</Button>
           </Box>
         </Toolbar>

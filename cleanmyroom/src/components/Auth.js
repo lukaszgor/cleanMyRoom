@@ -159,8 +159,8 @@ return (
          <TextField id="standard-password-input" label="Hasło" type="password" autoComplete="current-password" variant="standard" onChange={(e) =>
          setPassword(e.target.value)} />
            <br/>
-        <TextField id="standard-basic" label="Imie" variant="standard" onChange={(e) => 
-        setUsername(e.target.value)} />
+        {/* <TextField id="standard-basic" label="Imie" variant="standard" onChange={(e) => 
+        setUsername(e.target.value)} /> */}
           <br/>
           <br/>
       <Button size="small" variant="contained" onClick={Register}>Zarejestruj się</Button>

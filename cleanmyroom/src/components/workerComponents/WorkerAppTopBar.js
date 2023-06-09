@@ -160,7 +160,18 @@ function WorkerAppTopBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-         {user}&nbsp;
+          <Typography
+            noWrap
+            component="a"
+            href="/AdminUserProfile"
+            sx={{
+              mr: 2,
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            {user}
+          </Typography>&nbsp;
           <Button variant="contained" color="error" onClick={SignOut} >Wyloguj</Button>
           </Box>
         </Toolbar>

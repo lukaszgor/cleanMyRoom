@@ -10,6 +10,8 @@ import supabase from "../supabaseClient"
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
+import { useNavigate } from "react-router-dom"
+
 
 function AddRoom() {
     const [number, setNumber] = useState('');
@@ -18,6 +20,7 @@ function AddRoom() {
     const [description, setDescription] = useState('');
     const [date,setDate]=useState('09.02.2023');
     const [geolocation, setGeolocation] = useState('');
+    const navigate = useNavigate()
   
    
     const handleStatusChange = (event) => {
@@ -32,6 +35,7 @@ const insertRoom = async()=>{
     .from('rooms')
     .insert([{number:number,name:name,status:status,name:name,description:description,actionDate:date,geoLocation:geolocation}])
     handleClickAlert()
+    navigate('/home')
     if(error){
         console.log(error)
     }if(data){
@@ -107,7 +111,7 @@ const handleCloseAlert = (event, reason) => {
           value={geolocation}
           onChange={(e) => 
             setGeolocation(e.target.value)}
-          required
+          
           style={{ marginBottom: '10px', maxWidth: '300px' }}
         />
         <TextField
@@ -116,7 +120,7 @@ const handleCloseAlert = (event, reason) => {
          value={description}
          onChange={(e) => 
             setDescription(e.target.value)}
-         required
+         
          inputProps={{ maxLength: 200 }}
          rowsMax={Infinity}
          style={{ marginBottom: '10px', maxWidth: '300px' }}
