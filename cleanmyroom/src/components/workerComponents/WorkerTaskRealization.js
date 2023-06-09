@@ -78,7 +78,8 @@ const fetchrooms = async()=>{
   
   //set current date 
   const currentDateFunction =()=>{
-    let currentDate=moment().format('L');
+    const moment = require('moment');
+const currentDate = moment().format('DD:MM:YYYY HH:mm');
     setDateDone(currentDate)
   }
 

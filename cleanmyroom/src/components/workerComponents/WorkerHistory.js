@@ -1,6 +1,5 @@
 import { useState,useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { Button } from "@mui/material";
 import supabase from "../../supabaseClient"  
 import { useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom";
@@ -46,8 +45,8 @@ const columns = [
     { field: 'id', headerName: 'ID', type: 'number', width: 50 },
     { field: 'description', headerName: 'Opis',width: 130 },
     { field: 'whoDone', headerName: 'Realizator', width: 200 },
-    { field: 'dateDone', headerName: 'Data i czas', width: 130 },
-    { field: 'time', headerName: 'Czas wykonania', type: 'number', width: 120 },
+    { field: 'dateDone', headerName: 'Data i czas', width: 150 },
+    { field: 'time', headerName: 'Czas wykonania', type: 'number', width: 150 },
     // {
     //     field: "Akcje",headerName: 'Akcje', width: 200 ,
     //     renderCell: (cellValues) => {

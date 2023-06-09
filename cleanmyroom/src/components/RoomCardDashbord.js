@@ -54,11 +54,16 @@ function RoomCardDashbord() {
             
             navigate('/settings/'+room.id)
         }
+        const addNewRoom=()=>{
+            navigate('/Add')
+        }
           
     return (
 
         <div>
              <ResponsiveAppBar></ResponsiveAppBar>
+             <p></p>
+             <Button color="primary" onClick={addNewRoom}>Nowy</Button>
              <p></p>
         <div style={{ marginBottom: '20px' }}>
           <TextField

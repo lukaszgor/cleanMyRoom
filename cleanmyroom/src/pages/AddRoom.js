@@ -45,7 +45,8 @@ const insertRoom = async()=>{
   
   //set current date rewards
   const currentDateFunction =()=>{
-    let currentDate=moment().format('L');
+    const moment = require('moment');
+const currentDate = moment().format('DD:MM:YYYY HH:mm');
     setDate(currentDate)
   }
   
