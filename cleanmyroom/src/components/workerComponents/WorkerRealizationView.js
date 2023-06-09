@@ -56,7 +56,7 @@ function WorkerRealizationView() {
                 <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Nagłówek" {...a11yProps(0)} />
+          <Tab label="Zadanie" {...a11yProps(0)} />
           <Tab label="Usługi" {...a11yProps(1)} />
         </Tabs>
       </Box>

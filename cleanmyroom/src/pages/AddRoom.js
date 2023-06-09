@@ -68,6 +68,7 @@ const handleCloseAlert = (event, reason) => {
         
       <div>
             <ResponsiveAppBar></ResponsiveAppBar>
+            <p></p>
           <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <TextField
@@ -81,7 +82,7 @@ const handleCloseAlert = (event, reason) => {
         />
         <TextField
           type="text"
-          label="Name"
+          label="Nazwa"
           value={name}
           onChange={(e) => 
             setName(e.target.value)}

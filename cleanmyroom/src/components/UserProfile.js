@@ -83,17 +83,19 @@ const handleCloseAlert = (event, reason) => {
               error={!!error}
               helperText={error}
               onChange={(e) => setPassword(e.target.value)}
+              style={{ marginBottom: '10px', maxWidth: '300px' }}
             />
-            <p></p>
-           <Button variant="contained" color="error" style={{ marginLeft: '10px' }} onClick={handlePasswordChange}>
+          
+           <Button variant="contained" color="error" style={{ marginBottom: '10px', maxWidth: '300px' }} onClick={handlePasswordChange}>
             Zapisz
           </Button>
+          
           <p>Zmiana imienia i nazwiska</p>
         <TextField
                       label="Imię i nazwisko"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      style={{ marginBottom: '10px' }}
+                      style={{ marginBottom: '10px', maxWidth: '300px' }}
                     />
         
         <Button type="submit" variant="contained" color="primary" style={{ marginLeft: '10px' }} onClick={handleFullNameChange}>

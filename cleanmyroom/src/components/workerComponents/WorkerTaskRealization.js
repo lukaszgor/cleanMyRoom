@@ -198,8 +198,7 @@ const handleButtonClickLocation = (geolocation) => {
          required
          style={{ marginBottom: '10px', maxWidth: '300px' }}
         />
-        <Button variant="outlined" color="success"  onClick={() => handleButtonClickLocation(geolocation)}> Mapa</Button>
-        <p></p>
+        <Button variant="outlined" color="success"  onClick={() => handleButtonClickLocation(geolocation)} style={{ marginBottom: '10px', maxWidth: '300px' }}> Mapa</Button>
       </div>
       <Button type="submit" variant="contained" color="primary" >
         Zapisz
