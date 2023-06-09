@@ -21,7 +21,10 @@ function Room() {
     const [actionDate, setActionDate] = useState('');
     const [geoLocation, setGeoLocation] = useState('');
     const [date, setDate] = useState('');
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const moment = require('moment');
+  
+   
     
       const handleSubmit = (event) => {
         event.preventDefault();
@@ -76,13 +79,14 @@ const fetchrooms = async()=>{
         
     }if(data){
       setIdRoom(data.id);
-      setCreatedAt(data.createdAt);
+      setCreatedAt(moment(data.created_at).format('DD.MM.YYYY HH:mm'));
       setNumber(data.number);
       setName(data.name);
       setStatus(data.status);
       setDescription(data.description);
       setActionDate(data.actionDate);
       setGeoLocation(data.geoLocation);
+    
     }
 }
 //update data 

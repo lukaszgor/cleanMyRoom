@@ -7,6 +7,7 @@ import RoomsDashboard from "../components/RoomsDashboard"
 import WorkerHome from "../pages/WorkerHome"
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
+import RoomCardDashbord from '../components/RoomCardDashbord'
 
 function Home() {
   const navigate = useNavigate()//add to nav
@@ -56,7 +57,7 @@ const fetchTypeUser = async()=>{
     <div>
      
       {/* {isVerified !== null && <div><RoomsDashboard></RoomsDashboard></div>} */}
-      {isVerified === 'admin'  && <div><RoomsDashboard></RoomsDashboard></div>}
+      {isVerified === 'admin'  && <div><RoomCardDashbord></RoomCardDashbord></div>}
       {isVerified === 'worker'  && <div><WorkerHome></WorkerHome></div>}
       {isVerified === null && <div><p> Zaczekaj na zatwierdzenie administratora!</p>
       
