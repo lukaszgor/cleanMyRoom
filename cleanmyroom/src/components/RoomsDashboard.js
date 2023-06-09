@@ -15,6 +15,7 @@ function RoomsDashboard() {
             const{data,error} =  await supabase
             .from('rooms')
             .select()
+            .is('isActive', null);
             if(error){
                 console.log(error)
                 setRooms(null)
@@ -65,11 +66,12 @@ const addNewRoom=()=>{
     return (
         <div>
                <ResponsiveAppBar></ResponsiveAppBar>
+               <Button color="primary" onClick={addNewRoom}>Nowy</Button>
         {fetchError &&(<p>{fetchError}</p>)}
         {rooms &&(
         <div>
       <p>Wszystkie lokalizacje</p>
-      <Button color="primary" onClick={addNewRoom}>Nowy</Button>
+     
       <div style={{ height: 400, width: '100%' }}>
             <DataGrid
               rows={rooms}

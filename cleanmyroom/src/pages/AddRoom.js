@@ -68,7 +68,6 @@ const handleCloseAlert = (event, reason) => {
         
       <div>
             <ResponsiveAppBar></ResponsiveAppBar>
-          AddRoom
           <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <TextField

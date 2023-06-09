@@ -99,9 +99,8 @@ const updateRoom =async()=>{
 const deleteRoom =async()=>{
     const{data,error}=await supabase
     .from('rooms')
-    .delete()
+    .update({'isActive':1})
     .eq('id',id)
-    console.log("delete room")
     navigate('/home')
 
 }

@@ -38,7 +38,7 @@ function WorkerClosedRoomContainer() {
 
           // Pobranie danych z Supabase
           const fetchData = async () => {
-            const { data, error } = await supabase.from('rooms').select('*').in('status', ['zakonczone']); ;
+            const { data, error } = await supabase.from('rooms').select('*').is('isActive', null).in('status', ['zakonczone']); ;
             if (error) {
               console.error(error);
             } else {

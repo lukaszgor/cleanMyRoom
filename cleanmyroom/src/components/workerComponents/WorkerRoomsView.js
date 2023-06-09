@@ -36,7 +36,8 @@ function WorkerRoomsView() {
 
           // Pobranie danych z Supabase
           const fetchData = async () => {
-            const { data, error } = await supabase.from('rooms').select('*').in('status', ['oczekuje', 'realizacja']); ;
+            const { data, error } = await supabase.from('rooms').select('*').is('isActive', null)
+            .in('status', ['oczekuje', 'realizacja']); 
             if (error) {
               console.error(error);
             } else {
