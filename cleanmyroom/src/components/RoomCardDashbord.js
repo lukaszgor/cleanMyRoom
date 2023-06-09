@@ -11,6 +11,7 @@ function RoomCardDashbord() {
     const [filteredRooms, setFilteredRooms] = useState([]);
     const [searchName, setSearchName] = useState('');
     const [sortStatus, setSortStatus] = useState('');
+    const [searchNumber, setsearchNumber] = useState('');
   
 
     const navigate = useNavigate()
@@ -30,9 +31,12 @@ function RoomCardDashbord() {
     if (sortStatus !== '') {
       filteredData = filteredData.filter((room) => room.status === sortStatus);
     }
+    if (searchNumber !== '') {
+        filteredData = filteredData.filter((room) => room.number.toString().includes(searchNumber));
+      }
 
     setFilteredRooms(filteredData);
-  }, [rooms, searchName, sortStatus]);
+  }, [rooms, searchName, sortStatus,searchNumber]);
 
 
           // Pobranie danych z Supabase
@@ -58,6 +62,13 @@ function RoomCardDashbord() {
              <p></p>
         <div style={{ marginBottom: '20px' }}>
           <TextField
+          style={{ marginLeft: '20px',marginBottom: '20px' }}
+            label="Wyszukaj po numerze "
+            variant="outlined"
+            value={searchNumber}
+            onChange={(e) => setsearchNumber(e.target.value)}
+          />
+           <TextField
           style={{ marginLeft: '20px',marginBottom: '20px' }}
             label="Wyszukaj po nazwie "
             variant="outlined"
