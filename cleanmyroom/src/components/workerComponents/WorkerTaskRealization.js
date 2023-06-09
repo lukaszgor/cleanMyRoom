@@ -56,6 +56,17 @@ const inserTask = async()=>{
     console.log("update status")
     handleClickAlert()
 }
+
+ // update actionDate
+ const updateActionDate =async()=>{
+    const{data,error}=await supabase
+    .from('rooms')
+    .update({'actionDate':dateDone})
+    .eq('id',id)
+    handleClickAlert()
+}
+
+
 //download data
 const fetchrooms = async()=>{
     const{data,error} =  await supabase
@@ -103,6 +114,7 @@ const currentDate = moment().format('DD:MM:YYYY HH:mm');
       event.preventDefault();  
       updateRoom();
       inserTask();
+      updateActionDate();
     };
 
     //alert configuration

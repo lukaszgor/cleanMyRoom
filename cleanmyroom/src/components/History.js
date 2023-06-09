@@ -43,7 +43,7 @@ const detailsButton=(event, cellValues)=>{
       { field: 'id', headerName: 'ID', type: 'number', width: 50 },
       { field: 'description', headerName: 'Opis',width: 130 },
       { field: 'whoDone', headerName: 'Realizator', width: 200 },
-      { field: 'dateDone', headerName: 'Data i czas', width: 130 },
+      { field: 'dateDone', headerName: 'Data i czas', width: 180 },
       { field: 'time', headerName: 'Czas wykonania', type: 'number', width: 120 },
       {
           field: "Akcje",headerName: 'Akcje', width: 200 ,
