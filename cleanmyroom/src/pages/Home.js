@@ -11,15 +11,17 @@ import RoomCardDashbord from '../components/RoomCardDashbord'
 
 function Home() {
   const navigate = useNavigate()//add to nav
+  const [userID,setUserID] =useState('')
 //Verify loginuser
     let userIdFromLocalStorage;
     useEffect(()=>{
       fetchTypeUser(); //check type !=null
    // get user id
    userIdFromLocalStorage = localStorage.getItem('userIdFromLocalStorage');
-   console.log(userIdFromLocalStorage)
    if(userIdFromLocalStorage ===null){
      navigate('/')
+   }else{
+setUserID(userIdFromLocalStorage);
    }
    },[])
 
@@ -59,10 +61,17 @@ const fetchTypeUser = async()=>{
       {/* {isVerified !== null && <div><RoomsDashboard></RoomsDashboard></div>} */}
       {isVerified === 'admin'  && <div><RoomCardDashbord></RoomCardDashbord></div>}
       {isVerified === 'worker'  && <div><WorkerHome></WorkerHome></div>}
-      {isVerified === null && <div><p> Zaczekaj na zatwierdzenie administratora!</p>
-      
-    <Box sx={{ display: 'flex' }}>
+      {isVerified === null && <div>
+    <Box style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <p> Zaczekaj na zatwierdzenie administratora!</p>
+    <Button variant="contained" color="error" onClick={SignOut}>
+  Wyloguj się
+</Button>
+<p></p>
       <CircularProgress />
+      Twoje ID:
+<p>{userID}</p>
+
     </Box>
       </div>}
      
