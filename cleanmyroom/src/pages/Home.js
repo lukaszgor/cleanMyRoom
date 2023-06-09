@@ -64,7 +64,7 @@ const fetchTypeUser = async()=>{
       {isVerified === null && <div>
     <Box style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
     <p> Zaczekaj na zatwierdzenie administratora!</p>
-    <Button variant="contained" color="error" onClick={SignOut}>
+    <Button  onClick={SignOut}>
   Wyloguj się
 </Button>
 <p></p>
