@@ -9,6 +9,7 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import moment from "moment";
 import { useNavigate } from "react-router-dom"
+import QrCodeGenerator from './QRCode/QrCodeGenerator';
 
 function Room() {
     const {id} = useParams()
@@ -16,7 +17,7 @@ function Room() {
     const [createdAt, setCreatedAt] = useState('');
     const [number, setNumber] = useState('');
     const [name, setName] = useState('');
-    const [status, setStatus] = useState('brudne');
+    const [status, setStatus] = useState('');
     const [description, setDescription] = useState('');
     const [actionDate, setActionDate] = useState('');
     const [geoLocation, setGeoLocation] = useState('');
@@ -213,7 +214,9 @@ useEffect(()=>{
           Mapa
         </Button> 
       </div>
+   <QrCodeGenerator></QrCodeGenerator>
       </div>
+      <div></div>
       <Button variant="contained" color="error" style={{ marginLeft: '10px' }} onClick={deleteRoom}>
           Usuń
         </Button>
