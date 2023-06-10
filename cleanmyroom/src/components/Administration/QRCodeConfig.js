@@ -12,7 +12,7 @@ function QRCodeConfig() {
 
 
 
-  //download username
+  //download url
   const FetchQRcodeURL = async () => {
 
     const { data, error } = await supabase
@@ -62,9 +62,6 @@ function QRCodeConfig() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-
-
-
       <p>Konfiguracja adresu URL do strony klienta</p>
       <TextField
         type="text"
