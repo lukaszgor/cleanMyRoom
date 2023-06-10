@@ -39,7 +39,6 @@ function concatenateStrings(url, request, id) {
 
   const handleDownload = async () => {
     const result = concatenateStrings(url, request, id);
-    console.log(result)
     try {
       const qrData = result;
       const qrCodeDataURL = await QRCode.toDataURL(qrData);
