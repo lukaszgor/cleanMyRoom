@@ -77,7 +77,10 @@ function ResponsiveAppBar() {
     const Profile =  () => {
         navigate('/AdminUserProfile')
     }
-
+         //go to home method
+         const Home =  () => {
+            navigate('/home')
+        }
 
   return (
     <AppBar position="static">
@@ -131,6 +134,7 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+ <Button onClick={Home}  sx={{ my: 2, color: 'blue', display: 'block' }}>Home</Button>
 <Button onClick={Profile}  sx={{ my: 2, color: 'blue', display: 'block' }}>Profil</Button>
 <Button onClick={Administration}  sx={{ my: 2, color: 'blue', display: 'block' }}>Administracja</Button>
 <Button onClick={Services}  sx={{ my: 2, color: 'blue', display: 'block' }}>Usługi</Button>
