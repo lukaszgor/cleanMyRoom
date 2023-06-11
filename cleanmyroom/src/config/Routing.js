@@ -16,6 +16,7 @@ import WorkerUserProfile from "../pages/WorkerUserProfile"
 import AdminNewUser from "../pages/AdminNewUser"
 import AdminUserDetails from "../pages/AdminUserDetails"
 import AdminUserProfile from "../pages/AdminUserProfile"
+import ClientRequest from "../pages/ClientRequest"
 
 function Routing() {
   return (
@@ -32,6 +33,7 @@ function Routing() {
         <Route path="/WorkerUserProfile" element={<WorkerUserProfile />} />
         <Route path="/AdminNewUser" element={<AdminNewUser />} />
         <Route path="/AdminUserProfile" element={<AdminUserProfile />} />
+        <Route path="/ClientRequest/:id" element={<ClientRequest />} />
         <Route path="/UserDetails/:id" element={<AdminUserDetails />} />
         <Route path="/settings/:id" element={<Settings />} />
         <Route path="/taskView/:id" element={<TaskManagerView />} />
