@@ -68,6 +68,7 @@ setIdTicket(insertedRecordId);
         event.preventDefault();
 
         setShowTextField(false);
+        updateDetails();
 
         const dataToInsert = selectedServices.map(service => ({
             name: service.name,
@@ -112,6 +113,12 @@ setIdTicket(insertedRecordId);
         }
     };
 
+    const updateDetails = async () => {
+        const{data,error}=await supabase
+        .from('tickets')
+        .update({'details':message})
+        .eq('id',idTicket)
+  };
 
 
   return (
@@ -154,7 +161,7 @@ setIdTicket(insertedRecordId);
                     {option.name}
                 </li>
             )}
-            style={{ width: 500 }}
+            style={{ width: 250 }}
             renderInput={(params) => (
                 <TextField {...params} label="Dostępne usługi" placeholder="Co mamy zrealizować?" />
             )}
