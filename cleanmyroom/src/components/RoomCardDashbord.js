@@ -63,7 +63,10 @@ function RoomCardDashbord() {
         <div>
              <ResponsiveAppBar></ResponsiveAppBar>
              <p></p>
-             <Button color="primary" onClick={addNewRoom}>Nowy</Button>
+             <div style={{ marginLeft: '20px',marginBottom: '20px' }}>
+             <Button variant="contained"
+                    color="primary" onClick={addNewRoom}>Nowy</Button>
+             </div>
              <p></p>
         <div style={{ marginBottom: '20px' }}>
           <TextField
