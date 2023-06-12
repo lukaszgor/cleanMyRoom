@@ -25,7 +25,7 @@ const ClientRequest = () => {
   // Funkcja do wstawiania rekordu i otrzymywania numeru ID
 async function insetRecortTicket() {
     try {
-        const { error } = await supabase.from('tickets').insert([{ details: 'wartosc1' }]);
+        const { error } = await supabase.from('tickets').insert([{ details: 'wartosc1',id_room:id,status:'nowy' }]);
     
         if (error) {
           console.error('Wystąpił błąd podczas wstawiania rekordu:', error.message);

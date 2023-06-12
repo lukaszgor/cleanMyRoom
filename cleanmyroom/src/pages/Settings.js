@@ -9,6 +9,7 @@ import Room from '../components/Room';
 import Equipment from '../components/Equipment';
 import History from '../components/History';
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
+import ClientTickets from '../components/ClientTickets';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -62,6 +63,7 @@ function Settings() {
           <Tab label="Dane" {...a11yProps(0)} />
           <Tab label="Wyposazenie" {...a11yProps(1)} />
           <Tab label="Historia" {...a11yProps(2)} />
+          <Tab label="Prośby klientów" {...a11yProps(3)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -72,6 +74,9 @@ function Settings() {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <History/>
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+       <ClientTickets></ClientTickets>
       </TabPanel>
     </Box>
       </div>
