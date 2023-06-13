@@ -133,8 +133,8 @@ return (
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Logowanie" {...a11yProps(0)} />
-          <Tab label="Rejestracja" {...a11yProps(1)} />
-          <Tab label="Magiczny link" {...a11yProps(2)} />
+          {/* <Tab label="Rejestracja" {...a11yProps(1)} /> */}
+          {/* <Tab label="Magiczny link" {...a11yProps(2)} /> */}
         </Tabs>
       </Box>
 
