@@ -34,7 +34,7 @@ function ClientTickets() {
 
 const detailsButton=(event, cellValues)=>{
   console.log(cellValues.row);
-//   navigate('/taskView/'+cellValues.row.id)
+  navigate('/DetailsClientTickets/'+cellValues.row.id)
 }
 
 
@@ -42,9 +42,7 @@ const detailsButton=(event, cellValues)=>{
 
       { field: 'id', headerName: 'ID', type: 'number', width: 50 },
       { field: 'created_at', headerName: 'data powstania',width: 130 },
-      { field: 'worker', headerName: 'Realizator', width: 200 },
-      { field: 'status', headerName: 'status', width: 180 },
-      { field: 'finishDate', headerName: 'data zamkniecia', type: 'number', width: 120 },
+      { field: 'details', headerName: 'Opis',width: 130 },
       {
           field: "Akcje",headerName: 'Akcje', width: 200 ,
           renderCell: (cellValues) => {
@@ -65,6 +63,10 @@ const detailsButton=(event, cellValues)=>{
 
     return (
       <div>
+
+
+
+        
         {fetchError &&(<p>{fetchError}</p>)}
         {tickets &&(
         <div>

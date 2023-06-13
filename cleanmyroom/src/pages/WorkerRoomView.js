@@ -8,6 +8,7 @@ import WorkerAppTopBar from "../components/workerComponents/WorkerAppTopBar"
 import WorkerEquipment from "../components/workerComponents/WorkerEquipment"
 import WorkerHistory from "../components/workerComponents/WorkerHistory"
 import WorkerRealizationView from "../components/workerComponents/WorkerRealizationView"
+import ClientTickets from '../components/ClientTickets';
 
 
 function TabPanel(props) {
@@ -62,6 +63,7 @@ function WorkerRoomView() {
           <Tab label="Realizacja" {...a11yProps(0)} />
           <Tab label="Wyposazenie" {...a11yProps(1)} />
           <Tab label="Historia" {...a11yProps(2)} />
+          <Tab label="Prośby od klientów" {...a11yProps(3)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -72,6 +74,9 @@ function WorkerRoomView() {
       </TabPanel>
       <TabPanel value={value} index={2}>
       <WorkerHistory></WorkerHistory>
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+      <ClientTickets></ClientTickets>
       </TabPanel>
     </Box>
         </div>

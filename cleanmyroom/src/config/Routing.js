@@ -17,6 +17,7 @@ import AdminNewUser from "../pages/AdminNewUser"
 import AdminUserDetails from "../pages/AdminUserDetails"
 import AdminUserProfile from "../pages/AdminUserProfile"
 import ClientRequest from "../pages/ClientRequest"
+import DetailsClientTickets from '../pages/DetailsClientTickets'
 
 function Routing() {
   return (
@@ -38,6 +39,7 @@ function Routing() {
         <Route path="/settings/:id" element={<Settings />} />
         <Route path="/taskView/:id" element={<TaskManagerView />} />
         <Route path="/roomWorker/:id" element={<WorkerRoomView />} />
+        <Route path="/DetailsClientTickets/:id" element={<DetailsClientTickets />} />
       </Routes>
     </BrowserRouter>
   );
