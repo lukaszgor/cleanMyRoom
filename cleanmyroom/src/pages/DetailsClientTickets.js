@@ -74,8 +74,6 @@ function DetailsClientTickets() {
         {fetchError &&(<p>{fetchError}</p>)}
         {services &&(
         <div>
-      
-      
       <div style={{ height: 400, width: '100%' }}>
             <DataGrid
               rows={services}

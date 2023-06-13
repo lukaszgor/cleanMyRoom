@@ -7,7 +7,7 @@ import { useState,useEffect } from 'react';
 
 import TaskServices from '../taskManagerdetailsComp/TaskServices';
 import WorkerTaskRealization from "../workerComponents/WorkerTaskRealization";
-
+import ClientTickets from '../ClientTickets';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -58,6 +58,7 @@ function WorkerRealizationView() {
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Zadanie" {...a11yProps(0)} />
           <Tab label="Usługi" {...a11yProps(1)} />
+          <Tab label="Prosby klientów" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -65,6 +66,9 @@ function WorkerRealizationView() {
       </TabPanel>
       <TabPanel value={value} index={1}>
       <TaskServices></TaskServices>
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+      <ClientTickets></ClientTickets>
       </TabPanel>
     </Box>
       </div>
