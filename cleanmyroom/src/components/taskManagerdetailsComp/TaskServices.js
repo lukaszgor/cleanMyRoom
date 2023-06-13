@@ -14,7 +14,7 @@ import moment from "moment";
 
 function TaskServices() {
     const [name, setName] = useState('');
-    const [comment, setComment] = useState('');
+    const [comment, setComment] = useState('brak');
     const [options, setOptions] = useState([]);
     const {id} = useParams();
     const [services,setServices] =useState(null);
@@ -133,7 +133,7 @@ function TaskServices() {
         insertData();
         // Wyczyść pola formularza po zapisaniu danych
         setName('');
-        setComment('');
+        setComment('brak');
       }
     };
   

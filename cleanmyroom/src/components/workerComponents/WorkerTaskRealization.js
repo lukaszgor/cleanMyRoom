@@ -113,7 +113,9 @@ const currentDate = moment().format('DD:MM:YYYY HH:mm');
     const handleSubmit = (event) => {
       event.preventDefault();  
       updateRoom();
-      inserTask();
+      if(time !==''){
+        inserTask();
+      }
       updateActionDate();
     };
 
@@ -196,7 +198,6 @@ const handleButtonClickLocation = (geolocation) => {
          value={taskDescription}
          onChange={(e) => 
             setTaskDescription(e.target.value)}
-         required
          inputProps={{ maxLength: 200 }}
          rowsMax={Infinity}
          style={{ marginBottom: '10px', maxWidth: '300px' }}
@@ -208,7 +209,7 @@ const handleButtonClickLocation = (geolocation) => {
          value={time}
          onChange={(e) => 
             setTime(e.target.value)}
-         required
+         
          style={{ marginBottom: '10px', maxWidth: '300px' }}
         />
         <Button variant="outlined" color="success"  onClick={() => handleButtonClickLocation(geolocation)} style={{ marginBottom: '10px', maxWidth: '300px' }}> Mapa</Button>
