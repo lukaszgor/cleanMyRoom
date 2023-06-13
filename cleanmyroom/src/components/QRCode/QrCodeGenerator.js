@@ -53,7 +53,7 @@ function concatenateStrings(url, request, id) {
       const centerX = canvasWidth / 2;
       const centerY = canvasHeight / 2;
 
-      const text = 'W celu zamówienia sprzątania zeskanuj kod QR, a następnie wypełnij formularz';
+      const text = 'Zeskanuj kod';
 
       const availableWidth = canvasWidth - 20; // Dostępna szerokość dla tekstu - margines 10px z lewej i prawej strony
 
