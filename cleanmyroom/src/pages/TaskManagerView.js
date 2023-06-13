@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { useState,useEffect } from 'react';
 import TaskDetails from "../components/taskManagerdetailsComp/TaskDetails";
-import TaskServices from "../components/taskManagerdetailsComp/TaskServices";
+// import TaskServices from "../components/taskManagerdetailsComp/TaskServices";
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 
 function TabPanel(props) {
@@ -55,16 +55,16 @@ function TaskManagerView() {
     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
       <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
         <Tab label="Dane podstawowe" {...a11yProps(0)} />
-        <Tab label="Usługi" {...a11yProps(1)} />
+        {/* <Tab label="Usługi" {...a11yProps(1)} /> */}
         
       </Tabs>
     </Box>
     <TabPanel value={value} index={0}>
       <TaskDetails/>
     </TabPanel>
-    <TabPanel value={value} index={1}>
+    {/* <TabPanel value={value} index={1}>
       <TaskServices/>
-    </TabPanel>
+    </TabPanel> */}
   </Box>
     </div>
      
