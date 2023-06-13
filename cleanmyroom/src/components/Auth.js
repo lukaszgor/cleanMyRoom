@@ -96,11 +96,11 @@ localStorage.setItem('userIdFromLocalStorage', session?.user.id);
     if(error){
       setRMsg(error.message)
     }else{
-      setRMsg('User created successfully')
+      setRMsg('Pomyślna rejestracja')
       setUser(data.user)
     }
   }
-let errorMessageLogin='Enter valid credentials'
+let errorMessageLogin='Wprowadź poprawne dane'
   const Login = async () => {
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
@@ -109,20 +109,20 @@ let errorMessageLogin='Enter valid credentials'
     if(error){
       setLMsg(errorMessageLogin)
     }else{
-      setLMsg('Login successful')
+      setLMsg('Zalogowano pomyślnie')
       setUser(data.user)
       setSession(data.session)
       console.log(data.session)
       navigate('/home')
     }
   }
-let ErrorMessageMagicLink="Enter valid email address"
+let ErrorMessageMagicLink="Wprowadz poprawny adres email"
   const SendMagicLink = async () => {
     const {user,error}=await supabase.auth.signInWithOtp({email})
     if(error){
         setLMsgL(ErrorMessageMagicLink)
       }else{
-        setLMsgL('Login successful, check your mailbox')
+        setLMsgL('Logowanie zakonczone sukcesem, sprawdź skrzynkę pocztową')
     
       }
   }
@@ -142,13 +142,13 @@ return (
       <h1>Zaloguj się</h1>
       <TextField id="standard-basic" label="E-mail" placeholder="Enter your email" type="email" onChange={(e) => setEmail(e.target.value)} variant="standard" />
       <br/>      
-      <TextField id="standard-password-input" label="Hasło"  type="password" placeholder="Enter your Password" autoComplete="current-password" variant="standard" onChange={(e) =>
+      <TextField id="standard-password-input" label="Hasło"  type="password" placeholder="Wprowadz hasło" autoComplete="current-password" variant="standard" onChange={(e) =>
          setPassword(e.target.value)} />
       <br/>
       <br/>
       <Button size="small" variant="contained" onClick={Login}>Zaloguj się</Button>
       <p>{Lmsg}</p>
-      <p>Jeśli chcesz zmienić hasło zaloguj się za posrednictwem magicznego linka</p>
+     
       <br/>
       </TabPanel>
       <TabPanel value={value} index={1}>

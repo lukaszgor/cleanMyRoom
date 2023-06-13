@@ -6,7 +6,6 @@ function Login() {
 
     return (
       <div>
-          Login
           <Auth></Auth>
       </div>
      

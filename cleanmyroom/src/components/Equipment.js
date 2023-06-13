@@ -133,7 +133,7 @@ const insertEquipment = async()=>{
         {fetchError &&(<p>{fetchError}</p>)}
         {equipment &&(
         <div>
-      <p>Lista wyposazenia</p>
+    <p></p>
       <div style={{ height: 400, width: '100%' }}>
             <DataGrid
               rows={equipment}

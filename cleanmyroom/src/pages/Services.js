@@ -134,7 +134,7 @@ const insertService = async()=>{
      {fetchError &&(<p>{fetchError}</p>)}
      {service &&(
      <div>
-   <p>Lista usług</p>
+   <p> </p>
    <div style={{ height: 400, width: '100%' }}>
          <DataGrid
            rows={service}

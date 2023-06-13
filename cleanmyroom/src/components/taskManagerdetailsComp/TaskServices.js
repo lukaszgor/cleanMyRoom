@@ -191,7 +191,7 @@ function TaskServices() {
         {fetchError &&(<p>{fetchError}</p>)}
         {services &&(
         <div>
-      <p>Lista usług</p>
+      <p> </p>
       <div style={{ height: 400, width: '100%' }}>
             <DataGrid
               rows={services}

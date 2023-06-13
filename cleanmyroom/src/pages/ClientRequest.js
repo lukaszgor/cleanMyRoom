@@ -69,6 +69,7 @@ setIdTicket(insertedRecordId);
 
         setShowTextField(false);
         updateDetails();
+        updateStatus();
 
         const dataToInsert = selectedServices.map(service => ({
             name: service.name,
@@ -119,6 +120,14 @@ setIdTicket(insertedRecordId);
         .update({'details':message})
         .eq('id',idTicket)
   };
+
+  const updateStatus = async () => {
+    const{data,error}=await supabase
+    .from('rooms')
+    .update({'status':'oczekuje'})
+    .eq('id',id)
+};
+
 
 
   return (

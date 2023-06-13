@@ -117,7 +117,7 @@ const handleCloseAlert = (event, reason) => {
         />
         <TextField
          multiline
-         label="Description"
+         label="Opis"
          value={description}
          onChange={(e) => 
             setDescription(e.target.value)}
