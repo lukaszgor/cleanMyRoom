@@ -20,6 +20,7 @@ function WorkerAppTopBar() {
     const [user,setUser] =useState(null)
     let userIdFromLocalStorage;
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [userType, setUserType] = useState('');
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -29,11 +30,43 @@ function WorkerAppTopBar() {
     setAnchorElNav(null);
   };
 
+  const fetchProfile = async () => {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('type')
+      .eq('id', userIdFromLocalStorage)
+      .single();
+
+    if (error) {
+      console.error('Error fetching profile:', error);
+    } else {
+      setUserType(data.type);
+    }
+  };
+
 
 
   useEffect(()=>{
     FetchUserName();
+
+    userIdFromLocalStorage = localStorage.getItem('userIdFromLocalStorage');
+    if(userIdFromLocalStorage ===null){
+      navigate('/')
+    }
+    fetchProfile();
+
   },[])
+
+
+
+  useEffect(() => {
+    if (userType === 'worker') {
+      // Pozostaj na stronie dla admina
+    } else if (userType === 'admin') {
+      // Przekieruj na podstronę dla pracownika
+      window.location.href = '/home';
+    }
+  }, [userType]);
 
 
 
